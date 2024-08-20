@@ -7,7 +7,7 @@
 	<div class="row" >
 	   <div class="col-md-4 mb-3 text-white">
 			<h6><b>QUICK LINKS</b></h6>
-			<a class="qlinks text-white text-uppercase" href="">Management</a><br/>
+			<a class="qlinks text-white text-uppercase" href="<?php echo site_url(); ?>management">Management</a><br/>
 			<a class="qlinks text-white text-uppercase" href="<?php echo site_url(); ?>selling-authority">Selling Authority</a><br/>
 			<a href="<?php echo base_url(); ?>terms-and-conditions" class="qlinks text-white text-uppercase">TERMS &amp; CONDITIONS</a><br/>
 			<a href="<?php echo base_url(); ?>privacy-policy" class="qlinks text-white text-uppercase">PRIVACY POLICY</a><br/>

@@ -24,9 +24,27 @@
 <?php	
 	if(!empty($row['products'])){
 	foreach($row['products'] as $key1 => $row1){
+	// $purity_amount=($row1['purity_percentage']*$casted_value)/100;
+	// $price2=$casted_value-$purity_amount;
+	// $final_price=$price2*$row1['weight'];
 	$purity_amount=($row1['purity_percentage']*$casted_value)/100;
-	$price2=$casted_value-$purity_amount;
-	$final_price=$price2*$row1['weight'];
+	// $price2=$casted_value-$purity_amount;
+	$price2=0;
+	
+	if($gold_mcx['all_india_display']=='0'){
+		$price2=$casted_value;
+	}else{
+		$ask=$api_details[0]['Ask']/10;
+		$ask1=$ask+$gold_mcx['mcxa_value'];
+		$ask_gst=($ask1*$gold_mcx['mcxb_value'])/100;
+		$gask2=$ask1+$ask_gst+$gold_mcx['mcxc_value'];
+		//$purity_amount=($row1['purity_percentage']*$gask2)/100;
+		//$price2=$gask2-$purity_amount;
+		$price2=$gask2;
+	}
+	
+	//$final_price=$price2*$row1['weight'];
+	$final_price=$price2*100;
 ?> 
 <div class="<?php echo $pcol; ?> col-sm-6 mb-3">
 	<div class="p-3 border nbr2 text-white shadow rounded text-center h-100">
