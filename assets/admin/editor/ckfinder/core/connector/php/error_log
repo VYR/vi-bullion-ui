@@ -1,0 +1,12 @@
+[13-Jun-2018 20:51:56 UTC] PHP Fatal error:  Uncaught CKSource\CKFinder\Exception\MethodNotAllowedException: CKFinder command QuickUpload expects to be called with POST HTTP request. Actual method: GET in /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/cksource/ckfinder/src/CKSource/CKFinder/CommandResolver.php:143
+Stack trace:
+#0 /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/symfony/http-kernel/HttpKernel.php(123): CKSource\CKFinder\CommandResolver->getController(Object(Symfony\Component\HttpFoundation\Request))
+#1 /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/symfony/http-kernel/HttpKernel.php(57): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#2 /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/cksource/ckfinder/src/CKSource/CKFinder/CKFinder.php(610): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#3 /home/chs1dnuatafp/public_html/ed in /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/cksource/ckfinder/src/CKSource/CKFinder/CommandResolver.php on line 143
+[13-Jun-2018 20:59:28 UTC] PHP Fatal error:  Uncaught CKSource\CKFinder\Exception\InvalidCommandException: CKFinder command  not found in /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/cksource/ckfinder/src/CKSource/CKFinder/CommandResolver.php:131
+Stack trace:
+#0 /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/symfony/http-kernel/HttpKernel.php(123): CKSource\CKFinder\CommandResolver->getController(Object(Symfony\Component\HttpFoundation\Request))
+#1 /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/symfony/http-kernel/HttpKernel.php(57): Symfony\Component\HttpKernel\HttpKernel->handleRaw(Object(Symfony\Component\HttpFoundation\Request), 1)
+#2 /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/cksource/ckfinder/src/CKSource/CKFinder/CKFinder.php(610): Symfony\Component\HttpKernel\HttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#3 /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/cksource/ckfinder/src/CKSou in /home/chs1dnuatafp/public_html/editor/ckfinder/core/connector/php/vendor/cksource/ckfinder/src/CKSource/CKFinder/CommandResolver.php on line 131
