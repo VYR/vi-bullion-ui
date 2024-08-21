@@ -61,11 +61,12 @@
 	<div class="container pt-5" id="live_rates_div"></div>
 	<script>
 		var liveRatesAjaxFlag=0;
-		if(liveRatesAjaxFlag===0){			
-			liveRatesAjaxFlag=1;
-			getLiverates();
-		}
-		getLiverates();
+		setInterval(function(){ 
+			if(liveRatesAjaxFlag===0){			
+				liveRatesAjaxFlag=1;
+				getLiverates();
+			}
+		}, 3000);
 		function getLiverates()
 		{
 			$.ajax({  
@@ -74,7 +75,7 @@
 				url: "<?php echo site_url(); ?>live_rates_ajax",    
 				data: { org_price:1 }})
 				.done(function(data){
-				$("#live_rates_div").html(data);
+				$("#live_rates_div").html(data);						
 				liveRatesAjaxFlag=0;				
 				setTimeout(function(){ $(".sprice").removeClass("blinkclr2"); }, 1500);		
 			});
