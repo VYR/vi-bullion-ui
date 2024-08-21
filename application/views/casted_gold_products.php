@@ -1,7 +1,11 @@
-<div class="container pt-5" id="live_rates_div"></div>
+<!-- 
 <script>
+	var liveRatesAjaxFlag=0;
 	setInterval(function(){ 
-	getLiverates();
+		if(liveRatesAjaxFlag===0){			
+			liveRatesAjaxFlag=1;
+			getLiverates();
+		}
 	}, 5000);
 	getLiverates();
 	function getLiverates()
@@ -9,15 +13,16 @@
 		$.ajax({  
 			type: "POST",    
 			dataType: "html",    
-			url: "<?php echo site_url(); ?>live_rates_ajax",    
+			url: "<?php /*echo site_url(); */ ?>live_rates_ajax",    
 			data: { org_price:1 }})
 			.done(function(data){
 			$("#live_rates_div").html(data);
+			liveRatesAjaxFlag=0;
 			setTimeout(function(){ $(".sprice").removeClass("blinkclr2"); }, 1500);	
 		});
 	}
-</script>
-<div class="container py-5" style="min-height:500px;">
+</script> -->
+<div class="container pb-5" style="min-height:500px;">
 <h1 class="text-center color1 text-uppercase">Casted Gold</h1>
 <div id="products_div">
 <?php	

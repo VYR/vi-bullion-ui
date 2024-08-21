@@ -159,9 +159,9 @@ class Welcome extends CI_Controller {
 					$all_categories[]=$row;
 				}}
 				$data['categories']=$all_categories;					
-				$this->load->view($this->header, $seo);
+				//$this->load->view($this->header, $seo);
 				$this->load->view('casted_gold_products', $data);
-				$this->load->view($this->footer);
+				//$this->load->view($this->footer);
 			}
 			else if($seg1=="casted_gold_loop")
 			{		

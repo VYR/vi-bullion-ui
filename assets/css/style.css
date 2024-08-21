@@ -705,6 +705,7 @@ font-size: 13px !important;
 .modal-dialog {
     margin: 11.75rem auto!important;
 }
+
 @media (max-width:500px)
 {	
 	.h1tag {
