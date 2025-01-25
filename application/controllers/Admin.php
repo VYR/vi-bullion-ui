@@ -1034,6 +1034,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "casted_employees")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->Common_model->get_record('tbl_casted_gold_employees', '*', '', 1,array('id','desc'));
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -1184,6 +1188,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "casted_promoters")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $employee_id = 0;
 					if(!empty($_GET)){
                     $employee_id = $this->input->get('id');
@@ -1356,6 +1364,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "casted_commission")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->Common_model->get_record('tbl_casted_gold_commission', '*', '', 1,array('id','desc'));
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -3671,6 +3683,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "minted_employees")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->Common_model->get_record('tbl_minted_employees', '*', '', 1,array('id','desc'));
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -3821,6 +3837,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "minted_promoters")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $employee_id = 0;
 					if(!empty($_GET)){
                     $employee_id = $this->input->get('id');
@@ -3993,6 +4013,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "minted_commission")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->Common_model->get_record('tbl_minted_commission', '*', '', 1,array('id','desc'));
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -4820,6 +4844,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "minted_silver_employees")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->Common_model->get_record('tbl_minted_silver_employees', '*', '', 1,array('id','desc'));
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -4970,6 +4998,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "minted_silver_promoters")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $employee_id = 0;
 					if(!empty($_GET)){
                     $employee_id = $this->input->get('id');
@@ -5138,6 +5170,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "minted_silver_commission")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->Common_model->get_record('tbl_minted_silver_commission', '*', '', 1,array('id','desc'));
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -6240,7 +6276,11 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "contact_enquiries")
                 {
-					$data['records'] = $this->Common_model->get_record('tbl_contact_us_enquiries', '*', '', 1, array('id','desc'));
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
+					          $data['records'] = $this->Common_model->get_record('tbl_contact_us_enquiries', '*', '', 1, array('id','desc'));
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
                     $this->load->view($this->views_folder.'contact_enquiries', $data);
@@ -8381,6 +8421,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "vi_pro")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->Common_model->get_record('tbl_vi_pro', '*', '', 1,array('id','desc'));
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -8531,6 +8575,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "vi_super")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $employee_id = 0;
 					if(!empty($_GET)){
                     $employee_id = $this->input->get('id');
@@ -8793,6 +8841,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "vi_payments")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
 					$where="id!=0";
                     $data['records'] = $this->Admin_model->get_vi_payments($where);
                     $this->load->view($this->header);
@@ -8802,6 +8854,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "vi_payments_add")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $id = 0;
                     $id = $this->input->get('id');
                     $data['super'] = $this->Common_model->get_record('tbl_vi_payments_details', '*', array('id'=>1),2);
@@ -9114,6 +9170,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "visave_employees")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->Common_model->get_record('tbl_visave_employees', '*', '', 1,array('id','desc'));
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -9428,6 +9488,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "visave_users")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->db->query("Select t1.*,t2.category_name,t3.sub_category_name,t4.name as promoter_name from tbl_visave_users t1 left join tbl_visave_categories t2 on t1.category_id=t2.id left join tbl_visave_sub_categories t3 on t1.sub_category_id=t3.id left join tbl_visave_promoters t4 on t1.promoter_id=t4.id order by t1.id DESC")->result_array();
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -9699,6 +9763,10 @@ class Admin extends CI_Controller
                 }
                 else if ($segment2 == "visave_groups")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->db->query("Select t1.*,t2.category_name,t3.sub_category_name from tbl_visave_groups t1 left join tbl_visave_categories t2 on t1.category_id=t2.id left join tbl_visave_sub_categories t3 on t1.sub_category_id=t3.id order by t1.id DESC")->result_array();
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);
@@ -9869,11 +9937,15 @@ class Admin extends CI_Controller
 						{
 							$this->session->set_flashdata('error', 'Not Deleted...');
 						}
-                    }
+                    } 
                     redirect('admin/visave_groups');
                 }
                 else if ($segment2 == "visave_group_users")
                 {
+                    if (empty($this->session->userdata('admin_data')))
+                    {
+                        redirect('admin');
+                    }
                     $data['records'] = $this->db->query("Select t1.*,t2.group_name,t4.name as promoter_name from tbl_visave_group_users t1 left join tbl_visave_groups t2 on t1.group_id=t2.id left join tbl_visave_promoters t4 on t1.promoter_id=t4.id order by t1.id DESC")->result_array();
                     $this->load->view($this->header);
                     $this->load->view($this->leftmenu);

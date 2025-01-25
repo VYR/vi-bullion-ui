@@ -5,6 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['admin'] = 'admin';
 $route['admin/(:any)'] = 'admin';
+$route['employee'] = 'employee';
+$route['employee/(:any)'] = 'employee';
 $route['other-services'] = 'Otherservices';
 $route['other-services/(:any)'] = 'Otherservices';
 $route['api'] = 'api';

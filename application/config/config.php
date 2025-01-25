@@ -24,10 +24,8 @@ date_default_timezone_set("Asia/Kolkata");
 | a PHP script and you can easily do that on your own.
 |
 */
-//local
+
 $config['base_url'] = 'http://' . $_SERVER['SERVER_NAME'] . '/vi-bullion-ui/';
-//production
-// $config['base_url'] = 'https://'.$_SERVER['SERVER_NAME'].'/';
 
 /*
 |--------------------------------------------------------------------------
