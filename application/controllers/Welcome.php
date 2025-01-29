@@ -104,6 +104,56 @@ class Welcome extends CI_Controller
                 $data['gold_value']   = $this->get_casted_value(1);
                 $data['silver_value'] = $this->get_casted_value(4);
                 $this->load->view('live_rates_ajax', $data);
+            } else if ($seg1 == "api_live_rates_ajax") {
+                $gold_mcx     = $this->Common_model->get_record('tbl_categories', '*', ['id' => 1], 2);
+                $silver_mcx   = $this->Common_model->get_record('tbl_categories', '*', ['id' => 4], 2);
+                $api_details  = $this->get_full_api();
+                $gold_value   = $this->get_casted_value(1);
+                $silver_value = $this->get_casted_value(4);
+                $ask          = $api_details[0]['Ask'] / 10;
+                $ask1         = $ask + $gold_mcx['mcxa_value'];
+                $ask_gst      = ($ask1 * $gold_mcx['mcxb_value']) / 100;
+                $gask2        = $ask1 + $ask_gst + $gold_mcx['mcxc_value'];
+                $gask2        = $gask2;
+                $ask          = $api_details[5]['Ask'];
+                $ask1         = $ask + $silver_mcx['mcxa_value'];
+                $ask_gst      = ($ask1 * $silver_mcx['mcxb_value']) / 100;
+                $sask2        = $ask1 + $ask_gst + $silver_mcx['mcxc_value'];
+
+                $data2 = [
+
+                    "spotGold"           => [
+                        "rate" => round($api_details[2]['Ask'], 2),
+                        "high" => round($api_details[2]['High'], 2),
+                        "low"  => round($api_details[2]['Low'], 2),
+                    ],
+                    "spotSilver"         => [
+                        "rate" => round($api_details[3]['Ask'], 2),
+                        "high" => round($api_details[3]['High'], 2),
+                        "low"  => round($api_details[3]['Low'], 2),
+                    ],
+                    "spotInr"            => [
+                        "rate" => round($api_details[4]['Ask'], 2),
+                        "high" => round($api_details[4]['High'], 2),
+                        "low"  => round($api_details[4]['Low'], 2),
+                    ],
+                    "allOverIndiaGold"   => ($gold_mcx['all_india_display'] == '0') ? round($gold_value, 2) : round($gask2, 2),
+                    "allOverIndiaSilver" => ($gold_mcx['all_india_display'] == '0') ? round($silver_value, 2) : round($sask2, 2),
+                    "goldCasting"        => [
+                        "rate" => round(($api_details[0]['Ask']), 2),
+                        "high" => round($api_details[0]['High'], 2),
+                        "low"  => round($api_details[0]['Low'], 2),
+                    ],
+                    "silverCasting"      => [
+                        "rate" => round($api_details[5]['Ask'], 2),
+                        "high" => round($api_details[5]['High'], 2),
+                        "low"  => round($api_details[5]['Low'], 2),
+                    ],
+                ];
+
+                header('Content-Type: application/json');
+                echo json_encode($data2, JSON_PRETTY_PRINT);
+                // $this->load->view('live_rates_ajax', $data);
             } else if ($seg1 == "api_live_rates") {
                 $data['gold_mcx']     = $this->Common_model->get_record('tbl_categories', '*', ['id' => 1], 2);
                 $data['silver_mcx']   = $this->Common_model->get_record('tbl_categories', '*', ['id' => 4], 2);
